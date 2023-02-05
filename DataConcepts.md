@@ -1,4 +1,4 @@
-# Data Conpets
+# Core Data Conpets
 
 *******************************************
 
@@ -11,12 +11,14 @@ Data can be classified as ***structured***, ***semi-structured*** and ***unstruc
 Data adheres to a *fixed schema*, **all of the data has the same attributes**.
 Most common schema for *structured data* is ***tabular***, where data is represented in **tables** that consists of **row to represent each instance** of a entity, and **columns to represent attributes** of the entity.
 *Structured data* is often stored in databases in which tables can reference one another by using **key values** in a ***relational* model**.
+
 ![tabular schema](/img/table.jpg)
 
 #### Semi-structured Data
 
 Data **has some structure**, but **allows for some variation between instances** of a entity.
 Most common format for semi-structured data is *JSON*
+
 ![json document](img/json.jpg)
 
 #### Unstructured Data
@@ -42,14 +44,17 @@ File format used to storage data depends on a number of factors:
   
 #### Delimited text files
 Data is stored in **plain text with specific field delimiter**, like: comma-separated values (CSV), tab-separated values (TSV). Delimited text is a good choice for **structured data** that needs to be accessed by applications and services **in a human-readable format**.
+
 ![CSV example](img/csv.jpg)
 
 #### Javascript Object Notation (JSON)
 JSON is a hierarchical document schema format used to define objects that have multiple attributes. Each attribute can be an object or a collection of objects. It's a flexibe format **good for both, structured and semi-structured data**.
+
 ![JSON example](img/json.jpg)
 
 #### Extensive Markup Language (XML)
 XML is a hierarchical schema in a human-readable format, it was very popular but has been superseded by JSON.
+
 ![XML example](img/xml.jpg)
 
 #### Binary Large Object (BLOB)
@@ -70,18 +75,26 @@ Database is used to define a **central system in which data can be stored and qu
 #### Relational Databases
 Used to store and query **structured data**. Data is stored in tables that represent entities. Each instance of an entity is assigned a ***primary key*** that **uniquely** indetifies it, and this key is used to **reference the entity instance in other tables**.
 This use of keys to reference data enables a relational database to be *normalized*, which in parts mean the **elimination of duplicated data values**. Tables are managed and queried using *Structured Query Language* (SQL)
+
 ![relational database](img/relational.jpg)
 
 #### Non-relational Database
 Are data management systems that **don't apply a relational schema to the data**. Are often referred to as NoSQL database.
 There are four common types commonly in use:
 - **Key-value database**: each record consists of **a unique key and an associated value**, which can be in **any format**.
+
 ![key-value database](img/key-value.jpg)
+
 - **Document database**: a specific form of **key-value database** in which **a value is a JSON document**.
+
 ![document database](img/document.jpg)
+
 - **Column family database**: store data in rows and columns, where you can **divide the columns into groups** known as **column families** that holds a set of columns that are **logically related**.
+
 ![column families database](img/column.jpg)
+
 - **Graph database**: store entities as **nodes whith links** to define **relationship** between them.
+
 ![graph database](img/graph.jpg)
 
 
@@ -101,7 +114,8 @@ A common architecture for enterprise-scale analytics looks like this:
 1. Data files may be stored in a central *Data Lake* for analysis
 2. An *extract, transform and load* (ETL) proccess **copies data from files and OLTP databases into a data wharehouse that is optimized for read activities**. A *data wharehouse* is commonly based on *fact* tables that contains **numeric values you want to analyze**, with related *dimension* tables that **represent entities** by which you **want to measure** them.
 3. Data in the *data wharehouse* may be **aggregated and loaded** into an *online analytical processing* (OLAP) model, or *cube*. **Aggregated numeric values** from *fact* tables **are calculated** for intersection of *dimensions* from dimension tables.
-4. The data in the *data lake*, *data wharehouse* and *analytical model* can be queried to produce *reports, visualizations and dashboard*s.
+4. The data in the *data lake*, *data wharehouse* and *analytical model* can be queried to produce *reports, visualizations and dashboards*.
+
 ![analytical architecture](img/analytical-architecture.jpg)
 
 ***Data lakes*** are common in **large-scale** data analytical processing scenarios, where large volumes of **file-based data** must be **collected and analyzed**.
