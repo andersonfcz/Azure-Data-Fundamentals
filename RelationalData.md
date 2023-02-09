@@ -1,5 +1,7 @@
 # Relational Data in Azure
 
+**************************
+
 Relational databases **model collections of entities**, from the real world **as tables**. An entity can be anything you want to record information; tipically important objects and events. A table contains rows, and **each row represents a single instance** of an entity.
 
 ![relational database](img/relational2.jpg)
