@@ -342,3 +342,91 @@ Benefits:
 - Highly available with built-in failure detection and failover mechanisms.
 - **Can use pgAdmin tool** to connect to Azure Database for PostgreSQL, however **some server-focused functionality, such perform server backup and restore, aren't available because the server is managed and maintaned by Microsoft**.
 - Records information about queries run against databases and saves to a database name azure_sys.
+
+### Azure Cosmos DB
+
+**Fully managed and serverless** distributed database for applications of any size and scale, with support for both **relational and non-relational** workloads.
+Supports **multiple APIs**, enabling developers to use the programming semantics of many common kinds of data store, the **internal data structure is abstracted**, allowing to use Cosmos DB to store and query data using APIs with which they're already familiar.
+Uses **indexes and partitioning** to provide fast read and write performance and can scale to massive volumes of data. **Support multi-region writes**, adding the Azure regions of your choice to your Cosmos DB account, so that globaly distributed users can each work with data in their local replica.
+Highly scalabe, **automatically allocates space** in a container for partitions, each partition can **grow up to 10 GB**. **Indexes are created and maintained automatically**.
+
+Suitable for the following scenarios:
+
+- *IoT and telematics* - systems that tipically ingest large amounts of data in frequent burst activity. Cosmos DB can accept and store this information quickly. The data can be used by analytcs services or be processed in real-time using Azure Functions that are triggered as data arrives in the database.
+- *Retail and marketing* - used for storing catalig data and for event sourcing in order processing pipelines.
+- *Gaming* - often require single-miliseconds latencies for reads and writes. A game database needs to be fast and be able to handle massive spikes in request rates.
+- *Web and mobile applications* - well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences.
+
+#### Azure Cosmos DB APIs
+
+Developers can build and migrate applications fast using their preferred open source database engines, including *PostgreSQL, MongoDB and Apache Cassandra*. When you provision a new CosmosDB instance, you **select the database engine that you want to use**. The choice of engine depends of many factors including the type of data to be stored, the need to support existing applications, and the skills of the developers who will work with the data.
+
+##### Azure Cosmos DB for NoSQL
+
+Microsoft's native **non-relational** service for working with the **document data model**. Manages data in JSON document format, and despite being a NoSQL data storage, **uses SQL syntax** to work with the data.
+
+A SQL query for an Azure Cosmos DB might look similar to this:
+
+```SQL
+SELECT *
+FROM customer c
+WHERE c.id = "joe@litware.com"
+```
+
+##### Azure Cosmos DB for MongoDB
+
+MongoDB popular open source database in which data is stored in *Binary JSON (BSON)* format. Azure Cosmos DB for MongoDB enables developers to use MongoDB client libraries and code to work with data in Azure Cosmos DB
+*MongoDB Query Language (MQL)* uses a compact, **object-oriented syntax** in which are used objects to call methods.
+
+The following query uses the find method to query the products collection in the db object.
+
+```Javascript
+db.products.find({id: 123})
+```
+
+##### Azure Cosmos DB for PostgreSQL
+
+A native PostgreSQL, **globally distributed** relational database that **automatically shards data** to help you to build highly scalable apps. You can start building apps on a single node, the same way you would with PostgreSQL anywhere else. AS you app's scalability and performance requirements grow, you can scale to multiple nodes by **transparently bistributing you tables**.
+
+##### Azure Cosmos DB for Table
+
+Used to work with data in **key-value tables**, similar to Azure Table Storage. Offers **greater scalability and performance than Azure Table Storage**.
+You can use the Table API throught one of the language-specific SDKs to make calls to you serice endpoint to retrieve data from the table.
+
+A request might look similar this:
+
+```
+https://endpoint/Customer(PartitionKey='1',RowKey='124')
+```
+
+##### Azure Cosmos DB for Apache Cassandra
+
+Compatible with Apache Cassandra, which is a popular open source database that uses **column-family storage** structure. Column families are tables, similar to those in a relational database, with the exception that it's **not mandatory for every row to have the same columns**.
+Cassandra supports a **syntax based on SQL**.
+
+```SQL
+SELECT * FROM Employees WHERE ID = 2
+```
+
+##### Azure Cosmos DB for Apache Gremlin
+
+Used with data in a **graph structure**, in which entities are defined as *vertices* that form nodes in connected graph. Nodes are connected by *edges* that represent relationships.
+
+The example shows two kinds of *vertex* (employee and department) and *edges* that connect them (employee "Ben" reports to employee "Sue", and both employees work in the "Hardware" department).
+
+![apache gremlin](img/graph.jpg)
+
+Gremlin syntax includes functions to operate on vertices and edges, enabling to insert, update, delete, and query in the graph.
+
+The following code add a new employee named Alice that reports to the employee with id 1
+
+```
+g.addV('employee').property('id', '3').property('firstName', 'Alice')
+g.V('3').addE('reprots to').to(g.V('1'))
+```
+
+The following query returns all employee vertices, in order of ID.
+
+```
+g.V().hasLabel('employee').order().by('id')
+```
