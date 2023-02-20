@@ -15,14 +15,14 @@ Large-scale data warehousing architecture can vary, as can the specific technolo
 
 ![large-scale datawarehousing](img/large-scale-dw.jpg)
 
-#### Data Ingestion Pipelines in Azure
+### Data Ingestion Pipelines in Azure
 
 Large-scale data ingestion is best implemented by creating pipelines that orchestrate ETL precesses. You can create and run pipelines using *Azure Data Factory or Azure Synapse Analytics* if you want to manage all of the components of your data warehousing in a unified workspace.
 *Pipelines* consist of **one or more activities that operate on data**. An input dataset provides the data source, and activities can be defined as a data flow that **incrementally manipulates** the data until an output dataset is produced. Pipelines use linked services to load and process data.
 
 ![data ingestion pipeline](img/data-ingestion-pipeline.jpg)
 
-#### Analytical Data Stores
+### Analytical Data Stores
 
 There are two common types of analytical data store.
 
@@ -46,7 +46,7 @@ There are three main services to implement large-scale analytical store
 - ***Azure Databricks*** - Azure implementation of the popular Databricks platform. Is a **data analytics solution built on Spark and offers native SQL capabilities as well as workload-optimized Spark clusters for data analytics and data science**. Provides an interactive user interface through which the system can ben managed and data can be explored in interactive notebooks. Might consider using Azure Databricks as your analytical store if you **want to use existing expertise with the platform, or if you need to operate in a multi-cloud envirorment or support a cloud-portable solution**.
 - ***Azure HDInsight*** - service that **supports multiple open-source data analytics cluster types**. Is not as user-friendly as Azure Synapse Analytics and Azure Databricks. Can be a suitable option **if your analytics solution relies on multiple open-source frameworks or if you need to migrate an existing on-premises Hadoop-based solution to the cloud**.
 
-### Real-time Analytics in Azure
+### Data Processing
 
 Data processing is simply the conversion of raw data to meaningful information through a process.
 
@@ -95,7 +95,7 @@ Even when real-time analysis or visualization is not required, streaming process
 
 ![large-scale data processing](img/large-scale-processing.jpg)
 
-### Common elements of stream processing architecture
+#### Common elements of stream processing architecture
 
 At its simplest, a high-level architecture for stream processing looks like this:
 

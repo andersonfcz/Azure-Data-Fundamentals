@@ -1,8 +1,8 @@
-# Core Data Concepts {#core-data-concepts}
+# Core Data Concepts
 
 *******************************************
 
-## Data Formats {#data-formats}
+## Data Formats
 
 Data can be classified as ***structured***, ***semi-structured*** and ***unstructured***
 
@@ -27,7 +27,7 @@ Some data might **not have a specific struture**. For Example, images, video, au
 
 
 
-## Data Stores {#data-stores}
+## Data Stores
 
 Organizations store data in structured, semi-structured and unstructured formats, that can be retrieved later for analysis and reporting.
 
@@ -69,7 +69,7 @@ Some common optimized file formats:
 - ***ORC***: **is a column-based format**, developed for **optimizing read and write operations** in data wharehouse systems. ORC files contain stripes of data. Each stripe holds the data for a column or set of columns. A stripe contain a index for the row, the data and a footer that holds statistical information for each column.
 - ***Parquet***: **is a column-based format**, Parque files contains row groups, data for each column is stored in the same row group. Each row group contains one or more chunks of data. A Parquet file contains metadatas that describes the set of rows found in each chunk. Applications use metadata to locate the correct chunk and retrieve data. Parquet **specializes in storing and processing nested data types** efficiently. Support very efficient compression and encoding schemes.
 
-### Databases {#databases}
+### Databases
 Database is used to define a **central system in which data can be stored and queried**. It's a dedicated system for **managing data records rather than files**.
 
 #### Relational Databases
@@ -98,7 +98,7 @@ There are four common types commonly in use:
 ![graph database](img/graph.jpg)
 
 
-### Transactional Data Processing {#transactional-data-processing}
+### Transactional Data Processing
 A transactional system records **transactions** that encapsulate specific **events** that an organization wants to track. Transaction system are often **high-volume**. The data being processed has to be **accessible very quickly**. The work performed by transactional system are often referred to as *Online Transactional Proccessing* (OLTP).
 **OLTP** solutions rely on databases in which data storage is **optimized for read and write** operations in which data records are created, retrived, updated and deleted (*CRUD*). OLTP systems **enforce** transactions that support so-called *ACID* semantics to **ensure the integrity of the data** stored.
 - ***Atomicity***: each transaction is treated as a **single unit**, which **succeeds completely** or **fails completely**.
@@ -108,7 +108,7 @@ A transactional system records **transactions** that encapsulate specific **even
 
 OLTP systems are used to support **live applications** that proccess business data, referred as *line of business* (LOB) applications.
 
-### Analytical Data Processing {#analytical-data-processing}
+### Analytical Data Processing
 Uses **read-only systems** that store **large volumes** of historical data or business metrics.
 A common architecture for enterprise-scale analytics looks like this:
 1. Data files may be stored in a central *Data Lake* for analysis
@@ -130,14 +130,14 @@ Different roles might perform data analytical work at differents stages of the o
 - **Business users** might **consume pre-aggregated data** in an analytical model **in the form of reports or dashboards**.
 
 
-## Job Roles in the world of data {#job-roles-in-the-world-of-data}
+## Job Roles in the world of data
 
 The three job roles that deal with data:
 - ***Database Administrator***: **Design, implementation, maintenance and operational** aspects of database systems. **Reponsible for the availability, performance and optimization** of databases. **Implement policies, tools and proccess for backup** and recovery plans. **Manage security** of the data in the database granting privileges over the data for appropriate users.
 -  ***Data Engineer***: **Implement data ingestion pipelines, cleansing and transformation activities**, and data stores for analitycal workloads. Use relational and non-relational databases, file stores and data streams. **Ensure that de privacy of the data is maintened**. Manage and monitoring data pipelines.
 -  ***Data Analyst***: **Explore data to indentify trends and relationships**, **design and build analytical models**, enabling advanced analytics through reports and visualizations. **Proccess raw data into relevant insights** based on business requirements.
 
-## Azure Data Services {#azure-data-services}
+## Azure Data Services
 
 Some of commonly used cloud services for data are:
 

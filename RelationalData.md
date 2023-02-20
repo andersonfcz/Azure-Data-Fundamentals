@@ -1,6 +1,8 @@
-# Relational Data in Azure {#relational-data}
+# Relational Data in Azure
 
 **************************
+
+### Relational Data Concepts
 
 Relational databases **model collections of entities**, from the real world **as tables**. An entity can be anything you want to record information; tipically important objects and events. A table contains rows, and **each row represents a single instance** of an entity.
 
@@ -9,7 +11,7 @@ Relational databases **model collections of entities**, from the real world **as
 Relational tables are a format for structured data, each row in a table **has the same columns**, though in same cases, **not all columns need to have a value**, which can be empty (or NULL).
 Each column stores data of a **specific datatype**. The available datatypes that you can use when defining a table **depends on the dasabase system** you are using, though there are standard datatypes difened by the *American National Standards Institute (ANSI)* that are supported by most database systems.
 
-### Normalization {#normalization}
+### Normalization
 
 Normalization is a term used by database professionals for a schema desing proccess that **minimizes data duplication** and **enforces data integrity**.
 There are many complex rules that define the proccess of refactoring data into various levels (forms) of normalization.
@@ -35,7 +37,7 @@ Decomposition of attributes into individual columns ensures that each **value is
 Instances of each entity are **uniquely indentified** by an ID or other key value, known as a **primary key**. When one entity **references another**, the primary key of the related entity is stored as a **foreign key**. Typically a *relational database management system (RDBMS)* can **enforce referential integrity** to ensure that a value entered into a foreign key has an existing corresponding primary key in the related table.
 In some cases, a key (primary or foreign) can be defined as a *composite key* based on a **unique combination of multiple columns**.
 
-## SQL {#sql}
+## SQL
 
 Is used to communicate with a relational database. It's the standard language for RDBMS. SQL statements are used to perform tasks such as update data in a database, or retrieve data from a database.
 Although SQL statements are part of the SQL standard, many database management systems also have their own aditional proprietary extensions. These extensions provide functionality not covered by the SQL standard, and include areas such as security management and programmability. Microsoft SQL Server and Azure database services that are based on the SQL Server database engine, use Transact-SQL (T-SQL), that includes proprietary extensions for writing stored procedures and triggers (application code that can be stored in the database), and managing user accounts.
@@ -167,7 +169,7 @@ INSERT INTO Product(ID, Name, PRICE)
 VALUES (99, 'Drill', 4.99);
 ```
 
-### Database Objects {#database-objects}
+### Database Objects
 
 In addition to tables, relational databases can contain other structures that help to optimize data organization, encapsulate programmatic actions, and improve the speed of access.
 
@@ -230,10 +232,8 @@ The index creates a tree-based structure that the database system's query optimi
 
 Tables containing **few rows**, using indexes is **not more efficient** than simply reading the entire table. However, when a table has **many rows**, indexes can **dramatically improve the performance of queries**.
 You can create **many indexes** on a table. However, indexes aren't free. An index **consumes storage space**, and each time you insert, update or delete data in a table, indexes for that table must be maintained. This additional work can **slow down** insert, update and delete operations. You must strike a **balance** between having **indexes** that speed up queries versus the **cost** of performing other operations.
-Tables containing **few rows**, using indexes is **not more efficient** than simply reading the entire table. However, when a table has **many rows**, indexes can **dramatically improve the performance of queries**.
-You can create **many indexes** on a table. However, indexes aren't free. An index **consumes storage space**, and each time you insert, update or delete data in a table, indexes for that table must be maintained. This additional work can **slow down** insert, update and delete operations. You must strike a **balance** between having **indexes** that speed up queries versus the **cost** of performing other operations.
 
-## Azure SQL Services {#sql-services}
+## Azure SQL Services
 
 Azure SQL is a collective term for a family of Microsoft SQL Server based dabatase services in Azure
 
@@ -299,7 +299,7 @@ Advanced theat protection provides advanced security such as vulnerability asses
 Auditing database events and writes to an audit log in Azure storage account, help to maintain regulatory compliance, understand database activity and gain insight into discrepancies and anomalies that might indicate security violations.
 Provide encryption that protects data that is stored in the database (*at rest*) and while it is being transferred across the network (*in motion*).
 
-### Azure services for open-source databases {#os-db-services}
+### Azure Services for Open-source Databases
 
 Popular relational database systems including MySQL, MariaDB, and PostgreSQL are available in Azure data services. The reason is to enable organizations that use them in on-premises apps to move to Azure quickly, without making significant changes.
 
